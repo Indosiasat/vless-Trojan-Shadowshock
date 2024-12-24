@@ -78,5 +78,5 @@ Berikut cara aktivasinya:
 
 # Footnote
 
-- Hal aneh lain yang saya kerjakan [FoolVPN](https://t.me/foolvpn)
-- Tanya-tanya -> [Telegram](https://t.me/d_fordlalatina)
+- Contoh hasil vless trojan shadowshocks [FoolVPN](https://tes.wokorob201.workers.dev/sub)
+- Tanya-tanya -> [Telegram](https://t.me/Indosiasat)
