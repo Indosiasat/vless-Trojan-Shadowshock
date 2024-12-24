@@ -373,7 +373,7 @@ export default {
         }
       }
 
-      const targetReverseProxy = env.REVERSE_PROXY_TARGET || "https://app.getlee.co/r/9e625acb73";
+      const targetReverseProxy = env.REVERSE_PROXY_TARGET || "example.com";
       return await reverseProxy(request, targetReverseProxy);
     } catch (err) {
       return new Response(`An error occurred: ${err.toString()}`, {
