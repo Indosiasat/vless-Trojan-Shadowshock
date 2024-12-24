@@ -18,7 +18,7 @@ const PROTOCOLS = ["trojan", "vless", "ss"];
 const KV_PROXY_URL = "https://raw.githubusercontent.com/Indosiasat/vless-Trojan-Shadowshock/refs/heads/main/kvProxyList.json";
 const PROXY_BANK_URL = "https://raw.githubusercontent.com/Indosiasat/vless-Trojan-Shadowshock/refs/heads/main/proxyList.txt";
 const DOH_SERVER = "https://dns.quad9.net/dns-query";
-const PROXY_HEALTH_CHECK_API = "https://id1.foolvpn.me/api/v1/check";
+const PROXY_HEALTH_CHECK_API = "https://cool-credit-bfc1.wokorob201.workers.dev/";
 const CONVERTER_URL =
   "https://script.google.com/macros/s/AKfycbwwVeHNUlnP92syOP82p1dOk_-xwBgRIxkTjLhxxZ5UXicrGOEVNc5JaSOu0Bgsx_gG/exec";
 const PROXY_PER_PAGE = 24;
