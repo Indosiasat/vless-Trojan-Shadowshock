@@ -1,4 +1,4 @@
-# Welcome to Nautica
+# Welcome to INDOSIASAT
 
 Sebuah repository serverless tunnel studi kasus Indonesia
 
@@ -58,7 +58,7 @@ Klik tombol di bawah
 6. Deploy
 7. Buka `https://DOMAIN_WORKER_KALIAN/sub`
 
-- Contoh daftar proxy [proxyList.txt](https://raw.githubusercontent.com/dickymuliafiqri/Nautica/refs/heads/main/proxyList.txt)
+- Contoh daftar proxy [proxyList.txt](https://github.com/Indosiasat/vless-Trojan-Shadowshock/blob/main/proxyList.txt)
 - Contoh reverse proxy [example.com](https://example.com)
 
 ## Cara Aktivasi API
