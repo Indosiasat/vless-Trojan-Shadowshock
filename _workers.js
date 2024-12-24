@@ -1,7 +1,7 @@
 import { connect } from "cloudflare:sockets";
 
 // Variables
-const rootDomain = ""; // Ganti dengan domain utama kalian
+const rootDomain = "cool-credit-bfc1.wokorob201.workers.dev/"; // Ganti dengan domain utama kalian
 const serviceName = "Indosiasat"; // Ganti dengan nama workers kalian
 const apiKey = ""; // Ganti dengan Global API key kalian (https://dash.cloudflare.com/profile/api-tokens)
 const apiEmail = ""; // Ganti dengan email yang kalian gunakan
@@ -373,7 +373,7 @@ export default {
         }
       }
 
-      const targetReverseProxy = env.REVERSE_PROXY_TARGET || "youtube.com";
+      const targetReverseProxy = env.REVERSE_PROXY_TARGET || "https://app.getlee.co/r/9e625acb73";
       return await reverseProxy(request, targetReverseProxy);
     } catch (err) {
       return new Response(`An error occurred: ${err.toString()}`, {
