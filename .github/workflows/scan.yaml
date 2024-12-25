@@ -15,18 +15,22 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: "Indosiasat/vless-Trojan-Shadowshock"
-          token: ${{ secrets.noobz }}
+          token: ${{ secrets.noobz }}  # Pastikan token ini benar
+
       - name: Use Bun
         uses: oven-sh/setup-bun@v2
+
       - name: Start Scan
         run: |
           bun install && bun run ./helper/proxyip.ts
+
       - name: Publish Result
         if: ${{ success() }}
         uses: EndBug/add-and-commit@v9
         with:
           add: '["./*List.txt", "./*List.json"]'
           default_author: github_actions
-          fetch: false
+          fetch: true  # Mengambil pembaruan sebelum push
           tag_push: "--force"
           message: "Update proxy list"
+          push: true  # Memastikan bahwa commit ini akan dipush
