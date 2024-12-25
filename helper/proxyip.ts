@@ -31,8 +31,8 @@ const CHECK_QUEUE: string[] = [];
 
 async function readProxyList(): Promise<ProxyStruct[]> {
   const proxyList: ProxyStruct[] = [];
-
   const proxyListString = (await Bun.file(RAW_PROXY_LIST_FILE).text()).split("\n");
+
   for (const proxy of proxyListString) {
     const [address, port, country, org] = proxy.split(",");
     proxyList.push({
@@ -125,9 +125,14 @@ async function checkProxy(proxyAddress: string, proxyPort: number): Promise<Prox
   }
 
   await Bun.sleep(5000);
-  Bun.write(KV_PAIR_PROXY_FILE, JSON.stringify(kvPair, null, "  "));
-  Bun.write(RAW_PROXY_LIST_FILE, uniqueRawProxies.join("\n"));
-  Bun.write(PROXY_LIST_FILE, activeProxyList.join("\n"));
+  
+  try {
+    await Bun.write(KV_PAIR_PROXY_FILE, JSON.stringify(kvPair, null, "  "));
+    await Bun.write(RAW_PROXY_LIST_FILE, uniqueRawProxies.join("\n"));
+    await Bun.write(PROXY_LIST_FILE, activeProxyList.join("\n"));
+  } catch (error) {
+    console.error("Error saat menulis file:", error);
+  }
 
   console.log(`Waktu proses: ${((finish - start) / 1000).toFixed(2)} detik`);
 })();
