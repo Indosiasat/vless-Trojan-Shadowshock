@@ -79,14 +79,16 @@ async function checkProxy(proxyAddress: string, proxyPort: number): Promise<Prox
   const activeProxyList: string[] = [];
   const kvPair: any = {};
 
-  let proxySaved = 0;
+  let savedProxiesCount = 0;
   let finish = new Date().getTime();
 
   for (const proxy of proxyList) {
     const proxyKey = `${proxy.address}:${proxy.port}`;
     if (!proxyChecked.includes(proxyKey)) {
       proxyChecked.push(proxyKey);
-      uniqueRawProxies.push(`${proxy.address},${proxy.port},${proxy.country},${proxy.org.replaceAll(/[+]/g, " ")}`);
+      uniqueRawProxies.push(
+        `${proxy.address},${proxy.port},${proxy.country},${(proxy.org || "No Organization").replaceAll(/[+]/g, " ")}`
+      );
     } else {
       continue;
     }
@@ -94,9 +96,9 @@ async function checkProxy(proxyAddress: string, proxyPort: number): Promise<Prox
     CHECK_QUEUE.push(proxyKey);
     checkProxy(proxy.address, proxy.port)
       .then((res) => {
-        if (!res.error && res.result?.proxyip === true && res.result.country) {
+        if (!res.error && res.result && res.result.proxyip === true && res.result.country) {
           activeProxyList.push(
-            `${res.result?.proxy},${res.result?.port},${res.result?.country},${res.result?.asOrganization || "No Organization"}`
+            `${res.result.proxy},${res.result.port},${res.result.country},${res.result.asOrganization || "No Organization"}`
           );
 
           if (kvPair[res.result.country] == undefined) kvPair[res.result.country] = [];
@@ -104,12 +106,12 @@ async function checkProxy(proxyAddress: string, proxyPort: number): Promise<Prox
             kvPair[res.result.country].push(`${res.result.proxy}:${res.result.port}`);
           }
 
-          proxySaved += 1;
-          console.log(`[${CHECK_QUEUE.length}] Proxy disimpan:`, proxySaved);
+          savedProxiesCount += 1;
+          console.log(`[${CHECK_QUEUE.length}] Proxy disimpan:`, savedProxiesCount);
         }
       })
       .finally(() => {
-        CHECK_QUEUE.pop();
+        CHECK_QUEUE.shift(); // Menghapus elemen pertama dari array
         finish = new Date().getTime();
       });
 
