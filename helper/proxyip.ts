@@ -39,7 +39,7 @@ async function readProxyList(): Promise<ProxyStruct[]> {
       address,
       port: parseInt(port),
       country,
-      org,
+      org: org || "No Organization", // Default if org is undefined
     });
   }
 
@@ -96,7 +96,7 @@ async function checkProxy(proxyAddress: string, proxyPort: number): Promise<Prox
       .then((res) => {
         if (!res.error && res.result?.proxyip === true && res.result.country) {
           activeProxyList.push(
-            `${res.result?.proxy},${res.result?.port},${res.result?.country},${res.result?.asOrganization}`
+            `${res.result?.proxy},${res.result?.port},${res.result?.country},${res.result?.asOrganization || "No Organization"}`
           );
 
           if (kvPair[res.result.country] == undefined) kvPair[res.result.country] = [];
