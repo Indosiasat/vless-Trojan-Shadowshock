@@ -75,9 +75,9 @@ Berikut cara aktivasinya:
 
 1. Selesaikan langkah [Aktivasi API](#cara-aktivasi-api)
 2. Isi variable `rootDomain` dengan domain utama kalian
-   - Contoh: Domain workers `nautica.foolvpn.me`, berarti domain utamanya adalah `foolvpn.me`
+   - Contoh: Domain workers `indosiasat.noobz.us.kg`, berarti domain utamanya adalah `noobz.us.kg`
 3. Isi variable `serviceName` dengan nama workers kalian
-   - Contoh: Domain workers `nautica.foolvpn.me`, berarti nama workersnya adalah `nautica`
+   - Contoh: Domain workers `indosiasat.noobz.us.kg`, berarti nama workersnya adalah `indosiasat`
 4. Buat custom domain di pengaturan workers dengan kombinasi `serviceName`.`rootDomain`
    - Contoh: `nautica.foolvpn.me`
 
@@ -89,5 +89,5 @@ Berikut cara aktivasinya:
 
 # Footnote
 
-- Hal aneh lain yang saya kerjakan [FoolVPN](https://t.me/Channel_Indosiasat)
+- Hal aneh lain yang saya kerjakan [NoobzVPNKpnfamily](https://t.me/Channel_Indosiasat)
 - Tanya-tanya -> [Telegram](https://t.me/Indosiasat)
