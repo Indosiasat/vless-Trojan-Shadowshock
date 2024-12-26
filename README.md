@@ -1,4 +1,4 @@
-# Welcome to INDOSIASAT
+# Welcome to Nautica
 
 Sebuah repository serverless tunnel studi kasus Indonesia
 
@@ -46,7 +46,7 @@ Kode ini masih perlu banyak perbaikan, jadi silahkan berkontribusi dan berikan P
 ## Instant
 
 Klik tombol di bawah  
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Indosiasat/vless-Trojan-Shadowshock/tree/main)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dickymuliafiqri/Nautica)
 
 ## Manual
 
@@ -58,7 +58,7 @@ Klik tombol di bawah
 6. Deploy
 7. Buka `https://DOMAIN_WORKER_KALIAN/sub`
 
-- Contoh daftar proxy [proxyList.txt](https://github.com/Indosiasat/vless-Trojan-Shadowshock/blob/main/proxyList.txt)
+- Contoh daftar proxy [proxyList.txt](https://raw.githubusercontent.com/dickymuliafiqri/Nautica/refs/heads/main/proxyList.txt)
 - Contoh reverse proxy [example.com](https://example.com)
 
 ## Cara Aktivasi API
@@ -71,12 +71,23 @@ Berikut cara aktivasinya:
 2. Isi `variable` dari baris ke 4-9 sesuai dengan key yang kalian miliki
 3. Deploy
 
+### Aktivasi Wildcard (Custom Domain)
+
+1. Selesaikan langkah [Aktivasi API](#cara-aktivasi-api)
+2. Isi variable `rootDomain` dengan domain utama kalian
+   - Contoh: Domain workers `nautica.foolvpn.me`, berarti domain utamanya adalah `foolvpn.me`
+3. Isi variable `serviceName` dengan nama workers kalian
+   - Contoh: Domain workers `nautica.foolvpn.me`, berarti nama workersnya adalah `nautica`
+4. Buat custom domain di pengaturan workers dengan kombinasi `serviceName`.`rootDomain`
+   - Contoh: `nautica.foolvpn.me`
+
 # Endpoint
 
 - `/` -> Halaman utama reverse proxy
 - `/sub/:page` -> Halaman sub/list akun
+- `/api/v1/sub` -> Subscription link, [Queries](#fitur)
 
 # Footnote
 
-- Contoh hasil vless trojan shadowshocks [FoolVPN](https://tes.wokorob201.workers.dev/sub)
-- Tanya-tanya -> [Telegram](https://t.me/Indosiasat)
+- Hal aneh lain yang saya kerjakan [FoolVPN](https://t.me/foolvpn)
+- Tanya-tanya -> [Telegram](https://t.me/d_fordlalatina)
