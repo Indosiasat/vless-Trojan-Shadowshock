@@ -1,8 +1,8 @@
 import { connect } from "cloudflare:sockets";
 
 // Variables
-const rootDomain = "quiz.staging.vidio.com"; // Ganti dengan domain utama kalian
-const serviceName = "Indosiasat"; // Ganti dengan nama workers kalian
+const rootDomain = "foolvpn.me"; // Ganti dengan domain utama kalian
+const serviceName = "indosiasat"; // Ganti dengan nama workers kalian
 const apiKey = ""; // Ganti dengan Global API key kalian (https://dash.cloudflare.com/profile/api-tokens)
 const apiEmail = ""; // Ganti dengan email yang kalian gunakan
 const accountID = ""; // Ganti dengan Account ID kalian (https://dash.cloudflare.com -> Klik domain yang kalian gunakan)
@@ -187,12 +187,12 @@ export default {
           // Contoh: /ID, /SG, dll
           const proxyKeys = url.pathname.replace("/", "").toUpperCase().split(",");
           const proxyKey = proxyKeys[Math.floor(Math.random() * proxyKeys.length)];
-          let kvProxy = await env.vless-Trojan-Shadowshock.get("kvProxy");
+          let kvProxy = await env.nautica.get("kvProxy");
           if (kvProxy) {
             kvProxy = JSON.parse(kvProxy);
           } else {
             kvProxy = await getKVProxyList();
-            env.vless-Trojan-Shadowshock.put("kvProxy", JSON.stringify(kvProxy), {
+            env.nautica.put("kvProxy", JSON.stringify(kvProxy), {
               expirationTtl: 3600,
             });
           }
