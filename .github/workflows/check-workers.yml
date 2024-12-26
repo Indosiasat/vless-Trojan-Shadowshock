@@ -1,48 +1,19 @@
-name: Check Worker Health
+import axios from 'axios';
 
-# Menentukan event untuk menjalankan workflow
-on:
-  schedule:
-    # Menjalankan setiap hari pada pukul 12:00 UTC
-    - cron: '0 12 * * *'
-  push:
-    # Menjalankan setiap kali ada push ke cabang main
-    branches:
-      - main
+const apiUrl = 'https://cool-credit-bfc1.wokorob201.workers.dev/';
 
-jobs:
-  check_health:
-    runs-on: ubuntu-latest
+async function checkWorkerStatus() {
+    try {
+        const response = await axios.get(apiUrl);
+        
+        if (response.status === 200) {
+            console.log('Worker is healthy:', response.data);
+        } else {
+            console.log('Error status:', response.status);
+        }
+    } catch (error) {
+        console.error('Error while checking worker:', error.message);
+    }
+}
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'  # Versi Node.js yang Anda inginkan
-
-      - name: Install dependencies
-        run: npm install axios
-
-      - name: Run health check script
-        run: |
-          # Menulis skrip ke file checkWorker.js
-          echo "const axios = require('axios');" > checkWorker.js
-          echo "const apiUrl = 'https://cool-credit-bfc1.wokorob201.workers.dev/';" >> checkWorker.js
-          echo "async function checkWorkerStatus() {" >> checkWorker.js
-          echo "  try {" >> checkWorker.js
-          echo "    const response = await axios.get(apiUrl);" >> checkWorker.js
-          echo "    if (response.status === 200) {" >> checkWorker.js
-          echo "      console.log('Worker is healthy:', response.data);" >> checkWorker.js
-          echo "    } else {" >> checkWorker.js
-          echo "      console.log('Error status:', response.status);" >> checkWorker.js
-          echo "    }" >> checkWorker.js
-          echo "  } catch (error) {" >> checkWorker.js
-          echo "    console.error('Error while checking worker:', error.message);" >> checkWorker.js
-          echo "  }" >> checkWorker.js
-          echo "} checkWorkerStatus();" >> checkWorker.js
-
-          # Menjalankan skrip Node.js
-          node checkWorker.js
+checkWorkerStatus();
