@@ -5,7 +5,7 @@ const apiUrl = 'https://cool-credit-bfc1.wokorob201.workers.dev/';
 async function checkWorkerStatus() {
     try {
         const response = await axios.get(apiUrl);
-        
+
         if (response.status === 200) {
             console.log('Worker is healthy:', response.data);
         } else {
