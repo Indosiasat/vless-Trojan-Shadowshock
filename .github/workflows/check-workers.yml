@@ -1,19 +1,29 @@
-import axios from 'axios';
+name: Check Worker Health
 
-const apiUrl = 'https://cool-credit-bfc1.wokorob201.workers.dev/';
+on:
+  schedule:
+    # Menjadwalkan untuk dijalankan setiap hari pukul 12:00 UTC
+    - cron: '0 12 * * *'
+  push:
+    # Menjalankan saat ada push ke cabang main
+    branches:
+      - main
 
-async function checkWorkerStatus() {
-    try {
-        const response = await axios.get(apiUrl);
+jobs:
+  check_health:
+    runs-on: ubuntu-latest
 
-        if (response.status === 200) {
-            console.log('Worker is healthy:', response.data);
-        } else {
-            console.log('Error status:', response.status);
-        }
-    } catch (error) {
-        console.error('Error while checking worker:', error.message);
-    }
-}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-checkWorkerStatus();
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install axios
+
+      - name: Run health check script
+        run: node checkWorker.js
