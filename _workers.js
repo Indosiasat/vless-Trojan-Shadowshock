@@ -115,7 +115,14 @@ function getAllConfig(request, hostName, proxyList, page = 0) {
 
     // Build HTML
 const document = new Document(request);
-document.setTitle(`Komunitas Messenger <a href="https://m.me/cm/AbaQT8dD8qghN4n1/?send_source=cm%3Acopy_invite_link" class="text-blue-500 font-semibold">NoobzVpn</a>`);
+document.setTitle(`
+  Komunitas Messenger <a href="https://m.me/cm/AbaQT8dD8qghN4n1/?send_source=cm%3Acopy_invite_link" class="text-blue-500 font-semibold">NoobzVpn</a><br>
+  Fanpage Facebook <a href="https://www.facebook.com/warkop.digital?mibextid=ZbWKwL" class="text-blue-500 font-semibold">Warga Digital</a><br>
+  Telegram Channel <a href="https://t.me/Indosiasat_Channel" class="text-blue-500 font-semibold">Indosiasat_Channel</a><br>
+  Telegram Group <a href="https://t.me/NoobzvpnKPNFamily" class="text-blue-500 font-semibold">NoobzvpnKPNFamily</a><br>
+  WhatsApp Komunitas <a href="https://chat.whatsapp.com/IzTpaGP8cinHaMDbylo0aG" class="text-blue-500 font-semibold">Klik di sini untuk join</a><br>
+  Tonton Video Dapatkan $5 <a href="https://app.getlee.co/r/9e625acb73" class="text-blue-500 font-semibold">Klik di sini</a>
+`);
 document.addInfo(`Total: ${proxyList.length}`);
 document.addInfo(`Page: ${page}/${Math.floor(proxyList.length / PROXY_PER_PAGE)}`);
 
