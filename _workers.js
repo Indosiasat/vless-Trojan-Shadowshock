@@ -114,10 +114,10 @@ function getAllConfig(request, hostName, proxyList, page = 0) {
     uri.searchParams.set("host", hostName);
 
     // Build HTML
-    const document = new Document(request);
-    document.setTitle("Welcome to <span class='text-blue-500 font-semibold'>Indosiasat</span>");
-    document.addInfo(`Total: ${proxyList.length}`);
-    document.addInfo(`Page: ${page}/${Math.floor(proxyList.length / PROXY_PER_PAGE)}`);
+const document = new Document(request);
+document.setTitle(`Komunitas Messenger <a href="https://m.me/cm/AbaQT8dD8qghN4n1/?send_source=cm%3Acopy_invite_link" class="text-blue-500 font-semibold">NoobzVpn</a>`);
+document.addInfo(`Total: ${proxyList.length}`);
+document.addInfo(`Page: ${page}/${Math.floor(proxyList.length / PROXY_PER_PAGE)}`);
 
     for (let i = startIndex; i < startIndex + PROXY_PER_PAGE; i++) {
       const proxy = proxyList[i];
