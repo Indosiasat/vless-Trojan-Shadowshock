@@ -48,6 +48,7 @@ Kode ini masih perlu banyak perbaikan, jadi silahkan berkontribusi dan berikan P
 Klik tombol di bawah  
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Indosiasat/vless-Trojan-Shadowshock)
 
+[![Deploy to AI Studio](https://img.shields.io/badge/Deploy%20to-AI%20Studio-blue?style=flat&logo=googlecloud)](https://aistudio.google.com/https://github.com/Indosiasat/vless-Trojan-Shadowshock/tree/main/)
 ## Manual
 
 1. Buat akun cloudflare
